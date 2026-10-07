@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+ollama
+numpy
+pypdf
+python-docx

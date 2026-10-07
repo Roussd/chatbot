@@ -1,0 +1,26 @@
+[
+  {
+    "pregunta": "¿Cómo ingreso al sistema?",
+    "respuesta": "Abre el navegador e ingresa a la dirección del sistema. Escribe tu RUT sin puntos, sin guion y sin dígito verificador (por ejemplo, 12.345.678-9 se escribe 12345678), escribe tu contraseña y presiona Entrar."
+  },
+  {
+    "pregunta": "¿Cómo cambio mi contraseña?",
+    "respuesta": "Entra al menú de cuenta (esquina superior derecha) y selecciona Cambiar contraseña. Escribe la contraseña actual, la nueva, repítela y presiona Guardar. La nueva contraseña debe tener al menos 8 caracteres, con una mayúscula, una minúscula, un número y un símbolo, y ser distinta de la anterior."
+  },
+  {
+    "pregunta": "¿Cómo registro mi estado del día?",
+    "respuesta": "Entra a Mi estado, selecciona el estado que corresponda (puedes usar Buscar estado si la lista es larga), revisa la selección y presiona el botón de confirmación. El estado se declara una sola vez al día y queda bloqueado."
+  },
+  {
+    "pregunta": "¿Qué hago si registré un estado incorrecto?",
+    "respuesta": "Informa al mando de tu guardia el mismo día. El mando puede corregir el registro desde la nómina de la guardia. La corrección solo se aplica al día actual."
+  },
+  {
+    "pregunta": "¿Qué hago si olvidé mi contraseña o mi cuenta está bloqueada?",
+    "respuesta": "Si olvidaste la contraseña, solicita al administrador un restablecimiento: recibirás una contraseña temporal que deberás cambiar al ingresar. Si la cuenta está bloqueada, espera el tiempo que indica el mensaje (habitualmente 15 minutos); si el problema continúa, contacta al administrador."
+  },
+  {
+    "pregunta": "¿Cómo descargo un listado en Excel o PDF?",
+    "respuesta": "Solo los mandos de guardia y de división pueden hacerlo. Entra a Exportar, elige el período (día, semana o mes), selecciona la fecha de referencia, revisa el resumen y presiona Excel o PDF. El archivo se guarda en la carpeta de descargas del navegador."
+  }
+]

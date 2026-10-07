@@ -1,0 +1,168 @@
+/* ---------- Fuente: Poppins (guardada en el proyecto, no necesita internet) ---------- */
+@font-face { font-family: "Poppins"; font-weight: 300; font-style: normal; font-display: swap; src: url("/fonts/Poppins-300.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/Poppins-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/Poppins-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/Poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 300; font-style: italic; font-display: swap; src: url("/fonts/Poppins-300-italic.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: italic; font-display: swap; src: url("/fonts/Poppins-400-italic.woff2") format("woff2"); }
+
+/* ---------- Colores ----------
+   Paleta base: #06162B  #0F2E57  #2F6E9B  #A8D4EA  #F4FBFF
+   Cada modo solo define estas variables; el resto del archivo las usa por su función. */
+:root {
+  color-scheme: light;
+  --fondo: #F4FBFF;
+  --superficie: #FFFFFF;          /* menú y caja de pregunta */
+  --texto: #06162B;
+  --titulo: #0F2E57;
+  --acento: #2F6E9B;
+  --tenue: rgba(6, 22, 43, .6);
+  --linea: rgba(15, 46, 87, .12);
+  --activo: rgba(168, 212, 234, .35);
+  --hover: rgba(168, 212, 234, .18);
+  --boton: #06162B;
+  --boton-texto: #F4FBFF;
+  --boton-hover: #2F6E9B;
+  --borde-caja: transparent;
+  --borde-foco: #A8D4EA;
+  --anillo: rgba(168, 212, 234, .3);
+  --sombra: 0 10px 36px rgba(15, 46, 87, .08);
+  --sombra-menu: rgba(15, 46, 87, .06);
+  --logo: none;
+
+  --menu: 240px;
+  --columna: 760px;
+  --borde: clamp(16px, 4vw, 32px);
+}
+
+:root[data-tema="oscuro"] {
+  color-scheme: dark;
+  --fondo: #06162B;
+  --superficie: #0D2850;
+  --texto: #F4FBFF;
+  --titulo: #F4FBFF;
+  --acento: #A8D4EA;
+  --tenue: rgba(244, 251, 255, .62);
+  --linea: rgba(168, 212, 234, .18);
+  --activo: rgba(47, 110, 155, .42);
+  --hover: rgba(47, 110, 155, .22);
+  --boton: #A8D4EA;
+  --boton-texto: #06162B;
+  --boton-hover: #F4FBFF;
+  --borde-caja: rgba(168, 212, 234, .16);
+  --borde-foco: #2F6E9B;
+  --anillo: rgba(47, 110, 155, .38);
+  --sombra: 0 10px 36px rgba(0, 0, 0, .35);
+  --sombra-menu: rgba(0, 0, 0, .4);
+  --logo: brightness(0) invert(1);   /* el logo azul pasa a blanco sobre fondo oscuro */
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+button, textarea { font: inherit; color: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; border-radius: 6px; }
+
+body {
+  margin: 0; display: flex; height: 100dvh; overflow: hidden;
+  background: var(--fondo); color: var(--texto);
+  font-family: "Poppins", system-ui, sans-serif; font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .3s, color .3s;
+}
+
+svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ---------- Menú lateral ---------- */
+.menu { width: var(--menu); flex: none; display: flex; flex-direction: column; padding: 24px 14px 18px; background: var(--superficie); border-radius: 0 28px 28px 0; box-shadow: 8px 0 36px var(--sombra-menu); transition: margin-left .3s ease, transform .3s ease, background-color .3s; z-index: 20; }
+
+.marca-menu { display: flex; align-items: center; gap: 10px; padding: 0 8px 26px; }
+.marca-menu img { height: 26px; width: auto; filter: var(--logo); }
+.marca-menu strong { display: block; font-size: 15px; font-weight: 600; color: var(--titulo); line-height: 1.2; }
+.marca-menu small { display: block; font-size: 8.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--acento); }
+
+.etiqueta { margin: 0 0 8px; padding: 0 12px; font-size: 9.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tenue); }
+
+#temas { flex: 1; display: flex; flex-direction: column; gap: 2px; overflow-y: auto; scrollbar-width: thin; }
+.tema { border: 0; background: none; text-align: left; padding: 10px 12px; border-radius: 12px; font-size: 13px; color: var(--texto); cursor: pointer; transition: background .15s; }
+.tema:hover { background: var(--hover); }
+.tema.activo { background: var(--activo); color: var(--titulo); font-weight: 500; }
+
+.icono { width: 36px; height: 36px; display: grid; place-items: center; border: 0; background: none; border-radius: 10px; color: var(--tenue); cursor: pointer; transition: background .15s, color .15s; }
+.icono:hover { background: var(--activo); color: var(--titulo); }
+.menu .icono { align-self: flex-start; margin-left: 4px; }
+
+body[data-menu="cerrado"] .menu { margin-left: calc(var(--menu) * -1); }
+
+/* ---------- Zona principal ---------- */
+.principal { flex: 1; min-width: 0; display: flex; flex-direction: column; height: 100dvh; }
+.barra { display: flex; align-items: center; gap: 4px; padding: 14px var(--borde); min-height: 64px; }
+.espacio { flex: 1; }
+#btn-abrir { display: none; }
+body[data-menu="cerrado"] #btn-abrir { display: grid; }
+
+/* Botón de modo: muestra la luna en claro y el sol en oscuro */
+.modo .sol { display: none; }
+:root[data-tema="oscuro"] .modo .sol { display: block; }
+:root[data-tema="oscuro"] .modo .luna { display: none; }
+
+.enlace { display: inline-flex; align-items: center; gap: 7px; border: 0; background: none; padding: 6px 8px; font-size: 13px; font-weight: 500; color: var(--acento); cursor: pointer; transition: color .15s; }
+.enlace:hover { color: var(--titulo); }
+.enlace svg { width: 16px; height: 16px; }
+
+#vista { flex: 1; overflow-y: auto; display: flex; flex-direction: column; padding-inline: max(var(--borde), calc((100% - var(--columna)) / 2)); scrollbar-width: thin; scrollbar-color: var(--linea) transparent; }
+
+/* ---------- Inicio ---------- */
+#inicio { margin: auto; text-align: center; padding-block: 24px; animation: aparece .6s ease both; }
+h1 { margin: 0; font-size: clamp(2.8rem, 8vw, 4.25rem); font-weight: 300; line-height: 1.1; color: var(--texto); }
+h2 { margin: 6px 0 0; font-size: clamp(1.2rem, 3.6vw, 2rem); font-style: italic; font-weight: 400; line-height: 1.3; color: var(--acento); }
+#inicio p { margin: 20px auto 0; max-width: 300px; font-size: 14px; line-height: 1.6; color: var(--tenue); }
+
+#sugerencias { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
+.sugerencia { border: 1px solid var(--linea); background: transparent; border-radius: 12px; padding: 9px 14px; font-size: 12.5px; color: var(--titulo); cursor: pointer; transition: border-color .15s, background .15s; }
+.sugerencia:hover { border-color: var(--acento); background: var(--superficie); }
+
+/* ---------- Conversación ---------- */
+#conversacion { display: flex; flex-direction: column; gap: 28px; padding-block: 8px 28px; }
+#conversacion > * { animation: aparece .35s ease both; }
+.usuario { align-self: flex-end; max-width: 85%; padding: 10px 16px; border-radius: 18px 18px 4px 18px; background: var(--activo); color: var(--titulo); white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.55; }
+.texto { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; }
+.entendida { margin-bottom: 8px; font-size: 12px; font-style: italic; color: var(--tenue); }
+.fuentes { display: flex; align-items: flex-start; gap: 7px; margin-top: 12px; font-size: 12px; line-height: 1.4; color: var(--tenue); }
+.fuentes svg { width: 14px; height: 14px; margin-top: 1px; }
+.nota { align-self: center; font-size: 12px; color: var(--tenue); }
+.espera { color: var(--tenue); font-size: 13.5px; animation: late 1.6s ease-in-out infinite; }
+
+@keyframes aparece { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes late { 50% { opacity: .35; } }
+
+/* ---------- Caja de pregunta ---------- */
+.dock { flex: none; padding: 8px max(var(--borde), calc((100% - var(--columna)) / 2)) calc(24px + env(safe-area-inset-bottom)); }
+.caja { background: var(--superficie); border: 1px solid var(--borde-caja); border-radius: 20px; box-shadow: var(--sombra); padding: 18px 16px 12px 20px; transition: border-color .2s, box-shadow .2s, background-color .3s; }
+.caja:focus-within { border-color: var(--borde-foco); box-shadow: var(--sombra), 0 0 0 4px var(--anillo); }
+.fila-texto { display: flex; gap: 12px; align-items: flex-start; }
+.robot { color: var(--acento); margin-top: 3px; }
+.caja textarea { flex: 1; min-width: 0; border: 0; outline: 0; resize: none; background: none; color: var(--texto); font-size: 15px; line-height: 1.6; max-height: 160px; padding: 0; }
+.caja textarea::placeholder { color: var(--tenue); opacity: .85; }
+.acciones { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+.acciones .enlace { padding-left: 0; }
+.envio { display: flex; align-items: center; gap: 12px; }
+.pista { font-size: 11px; color: var(--tenue); }
+.enviar { width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--boton); color: var(--boton-texto); display: grid; place-items: center; cursor: pointer; transition: background .15s, transform .15s; }
+.enviar:hover { background: var(--boton-hover); }
+.enviar:active { transform: scale(.94); }
+button:disabled { opacity: .4; cursor: not-allowed; }
+
+/* ---------- Celular y tablet: el menú se abre como panel encima ---------- */
+.velo { position: fixed; inset: 0; background: rgba(6, 22, 43, .45); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 15; }
+
+@media (max-width: 819px) {
+  .menu { position: fixed; inset: 0 auto 0 0; margin-left: 0 !important; transform: translateX(-105%); }
+  body[data-menu="abierto"] .menu { transform: none; }
+  body[data-menu="abierto"] .velo { opacity: 1; pointer-events: auto; }
+  #btn-abrir { display: grid; }
+  .pista { display: none; }
+}
+
+@media (max-height: 560px) { #inicio p, #sugerencias { display: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
